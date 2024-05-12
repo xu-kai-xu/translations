@@ -156,7 +156,7 @@ Fundamentally, in a system in which the knowledge of the relevant facts is dispe
 
 
 
-## VI
+## part VI
 
 We must look at the price system as such a mechanism for communicating information if we want to understand its real function—a function which, of course, it fulfils less perfectly as prices grow more rigid. (Even when quoted prices have become quite rigid, however, the forces which would operate through changes in price still operate to a considerable extent through changes in the other terms of the contract.) The most significant fact about this system is the economy of knowledge with which it operates, or how little the individual participants need to know in order to be able to take the right action. In abbreviated form, by a kind of symbol, only the most essential information is passed on and passed on only to those concerned. It is more than a metaphor to describe the price system as a kind of machinery for registering change, or a system of telecommunications which enables individual producers to watch merely the movement of a few pointers, as an engineer might watch the hands of a few dials, in order to adjust their activities to changes of which they may never know more than is reflected in the price movement.
 
@@ -192,7 +192,7 @@ The price system is just one of those formations which man has learned to use (t
 
 
 
-## VII
+## part VII
 
 It is in many ways fortunate that the dispute about the indispensability of the price system for any rational calculation in a complex society is now no longer conducted entirely between camps holding different political views. The thesis that without the price system we could not preserve a society based on such extensive division of labor as ours was greeted with a howl of derision when it was first advanced by von Mises twenty-five years ago. Today the difficulties which some still find in accepting it are no longer mainly political, and this makes for an atmosphere much more conducive to reasonable discussion. When we find Leon Trotsky arguing that “economic accounting is unthinkable without market relations”; when Professor Oscar Lange promises Professor von Mises a statue in the marble halls of the future Central Planning Board; and when Professor Abba P. Lerner rediscovers Adam Smith and emphasizes that the essential utility of the price system consists in inducing the individual, while seeking his own interest, to do what is in the general interest, the differences can indeed no longer be ascribed to political prejudice. The remaining dissent seems clearly to be due to purely intellectual, and more particularly methodological, differences.
 
@@ -200,7 +200,7 @@ It is in many ways fortunate that the dispute about the indispensability of the 
 
 > 如果没有价格系统，我们将无法维持基于广泛劳动分工的这样一个社会。
 
-当冯·米塞斯（von Mises）二十五年前第一次在论文中提出他的上述观点时，招致了无数的嘲讽，到现在，那些无法接受这一观点的人，不再主要时因为政治立场的问题。这种情况创造了一种有助于理性辩论的氛围。当列昂·托洛茨基（Leon Trotsky）说，经济核算在没有市场关系的情况下是不可想象的；当奥斯卡·朗格（Oscar Lange ）向米塞斯教授承诺未来中央计划委员会的大理石大厅里有一尊他的雕像时；当阿巴·P·勒纳（Abba P. Lerner）重新发现了亚当·斯密，并强调价格系统对于**促使个人在追求自身利益的同时，做出符合整体利益的行为**方面的重要作用时，他们观点的不同不再是由于政治偏见的影响，而更多地是由于思想上、甚至是方法论上的不同。
+当冯·米塞斯（von Mises）二十五年前第一次在论文中提出他的上述观点时，招致了无数的嘲讽，到现在，那些无法接受这一观点的人，不再主要是因为政治立场的问题。这种情况创造了一种有助于理性辩论的氛围。当列昂·托洛茨基（Leon Trotsky）说，经济核算在没有市场关系的情况下是不可想象的；当奥斯卡·朗格（Oscar Lange ）向米塞斯教授承诺未来中央计划委员会的大理石大厅里有一尊他的雕像时；当阿巴·P·勒纳（Abba P. Lerner）重新发现了亚当·斯密，并强调价格系统对于**促使个人在追求自身利益的同时，做出符合整体利益的行为**方面的重要作用时，他们观点的不同不再是由于政治偏见的影响，而更多地是由于思想上、甚至是方法论上的不同。
 
  
 
@@ -214,7 +214,7 @@ A recent statement by Professor Joseph Schumpeter in his *Capitalism, Socialism,
 
 Taken literally, this statement is simply untrue. The consumers do nothing of the kind. What Professor Schumpeter’s *“ipso facto”* presumably means is that the valuation of the factors of production is implied in, or follows necessarily from, the valuation of consumers’ goods. But this, too, is not correct. Implication is a logical relationship which can be meaningfully asserted only of propositions simultaneously present to one and the same mind. It is evident, however, that the values of the factors of production do not depend solely on the valuation of the consumers’ goods but also on the conditions of supply of the various factors of production. Only to a mind to which all these facts were simultaneously known would the answer necessarily follow from the facts given to it. The practical problem, however, arises precisely because these facts are never so given to a single mind, and because, in consequence, it is necessary that in the solution of the problem knowledge should be used that is dispersed among many people.
 
-从字面理解，这个陈述时不正确的。消费者并没有做这些（评估生产商品所需的生产资料的）事情。熊彼得教授所谓的**事实上**，可能是指生产要素的评估蕴含在对商品的评估中，或者对商品的评估必然能够导致对生产要素的评估。但这一点也是不正确的。蕴含是一种逻辑关系，只有同时存在于同一个思维中的命题才能够进行有意义的推断。但是，显然生产要素的价值不仅仅取决于商品的价值，而且也取决于各种生产要素的供给情况。只有在一个同时了解所有这些事实的头脑中，答案才会必然地从给定的事实中得出。然而，实际问题的产生，就是因为这些事实无法同时由一个单一的头脑掌握。所以解决问题时就需要利用这些分散在众多个体中的知识。
+从字面理解，这个陈述是不正确的。消费者并没有做这些（评估生产商品所需的生产资料的）事情。熊彼得教授所谓的**事实上**，可能是指生产要素的评估蕴含在对商品的评估中，或者对商品的评估必然能够导致对生产要素的评估。但这一点也是不正确的。蕴含是一种逻辑关系，只有同时存在于同一个思维中的命题才能够进行有意义的推断。但是，显然生产要素的价值不仅仅取决于商品的价值，而且也取决于各种生产要素的供给情况。只有在一个同时了解所有这些事实的头脑中，答案才会必然地从给定的事实中得出。然而，实际问题的产生，就是因为这些事实无法同时由一个单一的头脑掌握。所以解决问题时就需要利用这些分散在众多个体中的知识。
 
  
 
@@ -243,6 +243,8 @@ That an economist of Professor Schumpeter’s standing should thus have fallen i
 北京
 
 
+
+## 几句话
 
 
 
