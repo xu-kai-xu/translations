@@ -558,7 +558,7 @@ P(A) = P(A_1) + P(A_2) + \dots + P(A_n) + P(R_n)
 $$
 由公式 (6) 和公式 (7) 可得公式 (5)。
 
-由此已表明，概率 $P(A)$ 是一个集合系统 $\mathcal{E}$ 上的完全可加集函数。公理 V 和 VI 对于定义在任意 $\mathcal{E}$ 上的完全可加集函数都成立。因此可以通过以下方式定义概率域的概念：
+由此已表明，概率 $P(A)$ 是一个集合系统 $\mathcal{E}$ 上的完全可加集函数。公理 V 和 VI 对于定义在任意 $\mathcal{E}$ 上的完全可加集函数都成立[^*]。因此可以通过以下方式定义概率域的概念：
 
 >   令 $E$ 为任意集合，$\mathcal{E}$ 为 $E$ 的包括其本身在内的子集组成的域，以及 $P(A)$ 为一个定义在 $\mathcal{E}$ 上的非负的完全可加集函数。则 $\mathcal{E}$ 与集合函数 $P(A)$ 共同构成一个概率域。
 
@@ -627,16 +627,97 @@ $$
 
 因此域 $(B\mathcal{E}, P)$ 中的集合通常只是理想事件，它们并没有在现实世界中对应的对象。然而，如果利用这些理想事件的概率进行的推演，能够让我们得出现实世界中的随机事件的概率，那么从经验的角度来看，这并不矛盾【利用只在数学概念中存在的概率，计算出现实世界中事件的概率】。
 
-
-
 ### 无限概率域举例
 
+I. 在本章第 1 节中，我们构造了很多有限概率域。现在假定 $E = {\xi_1, \xi_2, \dots, \xi_n, \dots }$ 为一个可数集合，并令 $\mathcal{E}$ 为 $E$ 的所有子集的集合。基于 $\mathcal{E}$，所有可能的概率域可以按如下方式得出：
+
+给定一个非负实数序列 $p_n$：
+$$
+p_1 + p_2 + \dots + p_n + \dots = 1
+$$
+且对于每个集合 $A$，定义
+$$
+P(A) = \sum_n ' p_n
+$$
+其中求和符号 $\sum '$ 作用于所有的属于 $A$ 的 $\xi_n$ 的下标。这些概率域显然是波莱尔域。
+
+II. 在这个例子中，我们应当假设 $E$ 代表实数轴。首先假设 $\mathcal{E}$ 由所有可能的半开区间 $[a_i; b) = \{a \le \xi < b\}$ [^#] 的有限和组成（不仅仅只考虑由有限实数 $a$ 和 $b$ 构成的常规区间，也考虑如 $[-\infin; a), [a; +\infin), [-\infin; +\infin)$ 这类的非常规区间）。这样，$\mathcal{E}$ 即为一个域。然而，根据扩展定理，任何定义在 $\mathcal{E}$ 上的概率域都可扩展为一个定义在 $B\mathcal{E}$ 上的类似的域。因此在这种情况下，集合系统 $B\mathcal{E}$ 实际上无非是实数轴上所有波莱尔点集的系统。接下来考虑下面的情况。
+
+III. 同样假设 $E$ 为实数轴，$\mathcal{E}$ 由这条轴上的所有波莱尔点集构成。想要构造给定域 $\mathcal{E}$ 上的概率域，只需在 $\mathcal{E}$ 上定义一个任意的非负的完全可加集函数 $P(A)$，且满足 $P(E) = 1$。已知这样的函数由其在区间 $[-\infin; x)$ 上的取值唯一确定[^2.3]：
+$$
+\tag{1}
+P[-\infin;x) = F(x)
+$$
+函数 $F(x)$ 称为 $\xi$ 的分布函数。之后在第三章第 2 节我们可以证明 $F(x)$ 是左连续的非减函数，且具有以下的极限值：
+$$
+\tag{2}
+\lim_{x \rightarrow -\infin} F(x) = F(-\infin) = 0, \\
+\lim_{x \rightarrow +\infin} F(x) = F(+\infin) = 1
+$$
+反过来，如果一个函数 $F(x)$ 满足这些条件，则它总是可以确定一个非负的完全可加集函数 $P(A)$，使得 $P(E) = 1$ [^2.4]。
+
+IV. 现在假设基本集合 $E$ 为一个 $n$ 维欧几里得空间 $R^n$，即集合中的每个元素 $\xi$ 是一个由实数构成的含有 $n$ 个元素的有序元组（tuples）：$\xi = \{ x_1, x_2, \dots, x_n \}$。假设 $\mathcal{E}$  由欧几里得空间 $R^n$ 中所有的波莱尔点集[^2.5]组成。根据与示例 II 中使用的类似推理，我们不需要研究更狭义的集合系统，例如 n 维区间的系统。概率函数 $P(A)$ 同样应该是一个定义在 $\mathcal{E}$ 上的非负的完全可加集函数，且满足 $P(E) = 1$。这样的集合函数的取值由特定集合 $L_{a_1, a_2, \dots, a_n}$ 确定：
+$$
+\tag{3}
+P(L_{a_1, a_2, \dots, a_n}) = F(a_1, a_2, \dots, a_n)
+$$
+其中 $L_{a_1, a_2, \dots, a_n}$ 表示所有满足 $x_i < a_i (i = 1, 2, \dots, n)$ 的 $\xi$ 的集合。
+
+对于 $F(a_1, a_2, \dots, a_n)$ ，我们选择的函数需要满足对于每一个变量都是左连续的非减函数，且满足以下条件：
+$$
+\tag{4}
+\lim_{a_i \rightarrow -\infin} F(a_1, a_2, \dots, a_n) = F(a_1, \dots, a_{i - 1}, -\infin, a_{i + 1}, \dots, a_n) = 0, \\
+(i = 1, 2, ..., n) \\
+\lim_{a_1 \rightarrow +\infin, a_2 \rightarrow +\infin, \dots, a_n \rightarrow +\infin} F(x) = F(+\infin, +\infin, \dots, +\infin) = 1
+$$
+
+>注意以上公式中。$F(x) = 0$ 的极限，只需有其中一个 $a_i$ 趋近于负无穷即可；$F(x) = 1$ 的极限,需要所有的 $a_i$ 都趋近于正无穷。
+
+【注】参考的两个版本在公式 $(4)$ 上有出入，这里贴了一个我能看得懂的，下面图中是另一个版本的我看不懂的公式：
+
+![f0019-04](./foundations_of_probability_trans.assets/f0019-04.jpg)
+
+$F(a_1, a_2, \dots, a_n)$ 称为变量 $x_1, x_2, \dots, x_n$ 的分布函数。
+
+对上述类型的概率域的研究足以解决概率理论中的所有经典问题[^2.6]。特别地，$R^n$ 上的概率函数可以定义为：
+
+定义在 $R^n$ 上的任意非负点函数：
+$$
+\int^{+\infin}_{-\infin} \int^{+\infin}_{-\infin} \dots \int^{+\infin}_{-\infin} f(x_1, x_2, \dots, x_n) dx_1 dx_2 \dots dx_n = 1
+$$
+并且令
+$$
+\tag{5}
+P(A) = \int \int \dots \int_{A} f(x_1, x_2, \dots, x_n) dx_1 dx_2 \dots dx_n
+$$
+$f(x_1, x_2, \dots, x_n)$ 此时称为在点 $(x_1, x_2, \dots, x_n)$ 处的概率密度（参考第三章第 2 节）。
+
+另一类 $R^n$ 上的概率函数可以由以下方式得出：假设 ${\xi_i}$ 为 $R^n$ 上的一个点的序列，令 $p_i$ 为一个非负实数的序列，使得 $\sum P_i = 1$。此时如例子 I 中那样，令
+$$
+P(A) = \sum' p_i
+$$
+其中求和符号 $\sum'$ 作用于所有属于 $A$ 的 $\xi$ 的下标。
+
+以上提到的两种定义在 $R^n$ 上的概率函数并没有涵盖所有可能的情况，但是通常认为这两种定义对于概率理论的应用已经足够。然而，我们可以设想一些在经典范围之外的应用问题，其中基本事件通过无限多个坐标来定义。我们将在引入为此目的所需的若干概念后，进一步详细研究相应的概率场（参考第三章第 3 节）。
 
 
 
-
+[^*]: See, for example, O. NIKODYM, Sur une généralisation des intégrales de M. J. Radon, Fund. Math. v. 15, 1930, p. 136.
 [^2.1]: 参考 HAUSDORFF, Mengenlehre, 1927, p. 85.
 [^2.2]: CARATHÉODORY, Vorlesungen über reelle Funktionen, pp.237-258. (New York, Chelsea Publishing Company).
+[^#]: 此处原文，区间表示方式，中间为`;`。
+[^2.3]: Cf., for example, LEBESGUE, Leçons sur l’intégration, 1928, p. 152-156.
+[^2.4]: 参考前一个注释中的内容。
+[^2.5]: For a definition of Borel sets in R see HAUSDORFF, Mengenlehre, 1927, pp. 177-181.
+[^2.6]: Cf., for example, R. v. MISES [1], pp. 13-19. Here the existence of probabilities for “all practically possible:” sets of an n-dimensional space is required.
+
+
+
+
+
+
+
+
 
 ## 随机变量
 
