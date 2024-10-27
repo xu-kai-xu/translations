@@ -850,13 +850,97 @@ $$
 
 
 
-
-
 ###  多维分布函数
+
+现在给定 $n$ 个随机变量 $X_1, X_2, \dots, X_n$。$n$ 维空间 $R^n$ 中的点 $x = (X_1, X_2, \dots, X_n)$ 是基本事件 $\xi$ 的函数。则根据本章第一节的内容，可得到定义在空间 $R^n$ 上的域 $\mathcal{E}^{(x_1, x_2, \dots, x_n)}$，这个域包括了空间 $R^n$ 的子集；也可以得到定义在 $\mathcal{E}'$ 上的概率函数 $P^{(x_1, x_2, \dots, x_n)}(A')$。这个概率函数称为随机变量 $x_1, x_2, \dots, x_n$ 的 $n$ 维概率函数。
+
+对于任意选择的 $i$ 和 $a_i$（$i = 1, 2, ..., n$），由随机变量的定义可以直接得出 $R^n$ 中满足 $x_i < a_i$ 的所有的点组成的集合。因此 $\mathcal{E}'$ 也包括了以上集合的交集，例如集合 $L_{a_1 a_2 \dots a_n}$ 表示 $R^n$ 中满足所有不等式 $x_i < a_i$（$i = 1, 2, \dots, n$）的点的集合[^3.1]。
+
+如果把 $R^n$ 空间中满足不等式 $a_i \le x_i < b_i$ 的所有点组成的集合记为 $n$ 维半开区间 $[a_1, a_2, \dots, a_n; b_1, b_2, \dots, b_n)$，则可以发现每一个这样的区间都属于域 $\mathcal{E}'$，因为
+$$
+[a_1, a_2, \dots, a_n; b_1, b_2, \dots, b_n) = L_{b_1 b_2 \dots b_n} - L_{a_1 b_2 \dots b_n} - L_{b_1 a_2 \dots b_n} - \dots - L_{b_1 b_2 \dots b_{n - 1} a_n}
+$$
+所有的 $n$ 维半开区间系统的波莱尔扩展，包含 $R^n$ 中的所有波莱尔集合。由此可得出，在波莱尔概率域下，域 $\mathcal{E}$ 包含了 $R^n$ 空间的所有波莱尔集合。
+
+【关于波莱尔扩展（Borel extension）和波莱尔集合（Borel sets）的区别】
+
+**定理**：在波莱尔概率域下，每一个定义在有限个随机变量 $x_1, x_2, \dots, x_n$ 上的波莱尔函数 $x = f(x_1, x_2, \dots, x_3)$ 也是个随机变量。
+
+要证明以上定理，只需证明 $R^n$ 上满足 $x = f(x_1, x_2, \dots, x_n) < a$ 的所有的点 $(x_1, x_2, \dots, x_n)$ 组成的集合是波莱尔集。特别地，所有的对随机变量进行有限的求和和求乘积的操作得到的变量，也是随机变量。  
+
+**定义**：函数
+$$
+F^{(x_1, x_2, \dots, x_n)} (a_1, a_2, \dots, a_n) = P^{(x_1, x_2, \dots, x_n)} (L_{a_1 a_2 \dots a_n})
+$$
+称为随机变量 $x_1, x_2, \dots, x_n$ 的 $n$ 维分布函数。
+
+与在一维下的情形类似，我们证明证明 $n$ 维分布函数 $F^{(x_1, x_2, \dots, x_n)} (a_1, a_2, \dots, a_n)$ 是一个非减函数，并且对于任意一个变量都是左连续的。类比第二节中的公式 $(3)$ 和 $(4)$，可得：
+$$
+\tag{7}
+\lim_{a_i \rightarrow - \infin} F (a_1, a_2, \dots, a_n) = F (a_1, a_2, \dots, a_{i - 1}, - \infin, a_{i + 1}, \dots, a_n) = 0
+$$
+
+$$
+\tag{8}
+\lim_{a_1 \rightarrow + \infin, a_2 \rightarrow + \infin, \dots, a_n \rightarrow + \infin} F (a_1, a_2, \dots, a_n) = F (+ \infin, + \infin, \dots, + \infin) = 1
+$$
+
+分布函数 $F^{(x_1, x_2, \dots, x_n)}$ 只针对于特定集合 $L_{a_1 a_2 \dots a_n}$ 给出了概率 $P^{(x_1, x_2, \dots, x_n)}$ 的值。但如果概率域是波莱尔域，则[^3.2] 对于所有 $R^n$ 上的波莱尔集， $P^{(x_1, x_2, \dots, x_n)}$ 都可以由分布函数 $F^{(x_1, x_2, \dots, x_n)}$ 唯一确定（uniquely determined）。
+
+如果存在导数
+$$
+f (a_1, a_2, \dots, a_n) = \frac{\part}{\part a_1 \part a_2 \dots \part a_n} F^{(x_1, x_2, \dots, x_n)} (a_1, a_2, \dots, a_n)
+$$
+则我们称这个导数为随机变量 $x_1, x_2, \dots, x_n$ 在点 $a_1, a_2, \dots, a_n$ 处的 $n$ 维概率密度。并且如果对于每个点 $(a_1, a_2, \dots, a_n)$，都有
+$$
+F^{(x_1, x_2, \dots, x_n)} (a_1, a_2, \dots, a_n) = \int_{-\infin}^{a_1} \int_{-\infin}^{a_2} \dots \int_{-\infin}^{a_n} f (a_1, a_2, \dots, a_n) d a_1 d a_2 \dots d a_n
+$$
+则 $x_1, x_2, \dots, x_n$ 的分布称为连续的。对于每一个波莱尔集合 $A \sub R^n$，有以下等式
+$$
+\tag{9}
+P^{(x_1, x_2, \dots, x_n)} (A) = \int \int \dots \int f (a_1, a_2, \dots, a_n) d a_1 d a_2 \dots d a_n
+$$
+在本章最后我们对各种概率函数和分布函数的关系再做一个说明。
+
+给定如下代换
+$$
+S = \begin{pmatrix}
+1, 2, \dots, n \\
+i_1, i_2, \dots, i_n \\
+\end{pmatrix}
+$$
+令 $r_s$ 表示如下的空间 $R^n$ 到其自身的一个变换：
+$$
+x'_k = x_{ik} \quad (k = 1, 2, \dots, n)
+$$
+显然可得
+$$
+\tag{10}
+P^{(x_{i_1}, x_{i_2}, \dots, x_{i_n})} (A) = P^{(x_1, x_2, \dots, x_n)} \{r_s ^{-1} (A)\}
+$$
+
+
+现在令 $x' = p_k (x)$ 为空间 $R^n$ 在空间 $R^k$ ($k < n$) 的投影，所以空间 $R^n$ 中的点 $x_1, x_2, \dots, x_n$ 映射到空间 $R^k$ 中为 $x_1, x_2, \dots, x_k$。所以，与第 1 节中的公式 $(2)$ 类似，有
+$$
+\tag{11}
+P^{(x_1, x_2, \dots, x_k)} (A)  = P^{(x_1, x_2, \dots, x_n)} (A) \{ p^{-1} _k (A) \}
+$$
+对应的分布函数，由公式 $(10)$ 和公式 $(11)$ 可得以下两个方程：
+$$
+\tag{12}
+F^{(x_{i_1}, x_{i_2}, \dots, x_{i_n})} (a_{i_1}, a_{i_2}, \dots, a_{i_n})  = F^{(x_1, x_2, \dots, x_n)} (a_1, a_2, \dots, a_n) 
+$$
+
+$$
+\tag{13}
+F^{(x_1, x_2, \dots, x_k)} (a_1, a_2, \dots, a_k)  = F^{(x_1, x_2, \dots, x_n)} (a_1, a_2, \dots, a_k, +\infin, \dots, +\infin)
+$$
 
 
 
 ### 无限维空间中的概率
+
+
 
 
 
@@ -865,6 +949,11 @@ $$
 
 
 
+
+
+
+[^3.1]: $a_i$ 也可以取无限值 $\pm \infin$。
+[^3.2]: 参见第 IV 章第 3 节。
 
 
 
