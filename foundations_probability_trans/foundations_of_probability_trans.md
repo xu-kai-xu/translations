@@ -1441,14 +1441,163 @@ $$
 
 
 
-
 ### 切比雪夫（Tchebycheff）不等式
+
+$f(x)$ 为实数 $x$ 的非负函数。如果对于 $x \ge a$，恒有 $f(x) \ge b > 0$，则如果数学期望 $\mathrm{E}\{ f(x) \}$ 存在，则对于任意随机变量 $x$，有
+$$
+\tag{1}
+\mathrm{P}(x\ge a) \le \frac{ \mathrm{E}\{ f(x) \}}{b}
+$$
+证明：
+$$
+\mathrm{E}\{ f(x) \} = \int_E f(x) \mathrm{P} (dE) \ge \int_{(x \ge a)} f(x)  \mathrm{P} (dE) \ge b \mathrm{P} (x\ge a)
+$$
+例如，对任意正数 $c$，
+$$
+\tag{2}
+\mathrm{P} (x \ge a) \le \frac{\mathrm{E} (e^{cx})}{e^{ca}}
+$$
+现在令 $f(x)$ 为非负的偶函数，并且对于 $x > 0$，$f(x)$ 为非减函数。则对于任意随机变量 $x$ 和任意选择的 $a > 0$，以下不等式成立：
+$$
+\tag{3}
+\mathrm{P} (|x| \ge a) \le \frac{\mathrm{E \{ f(x) \} }}{ f(a)}
+$$
+特别地，
+$$
+\tag{4}
+\mathrm{P} (|x - \mathrm{E}(x)| \ge a) \le \frac{\mathrm{E} f \{ x - \mathrm{E}(x) \} }{f(a)}
+$$
+当 $f(x) = x^2$ 时此关系尤为重要，由公式 $(3)$ 和 $(4)$ 可得
+$$
+\tag{5}
+\mathrm{P}(|x| \ge a) \le \frac{\mathrm{E}(x^2)}{a^2}
+$$
+
+$$
+\tag{6}
+\mathrm{P} (|x - \mathrm{E}(x)| \ge a) \le \frac{\mathrm{E} \{ x - \mathrm{E}(x) \}^2 }{a^2} = \frac{\sigma^2(x)}{a^2}
+$$
+
+其中
+$$
+\sigma ^2(x) = \mathrm{E} \{ x - E(x) \}^2
+$$
+称为变量 $x$ 的方差（ variance）。很容易计算得出
+$$
+\sigma ^2(x) = \mathrm{E}(x^2) - \{ \mathrm{E} (x) \}^2
+$$
+如果 $f(x)$ 有界，即
+$$
+|f(x)| \le K
+$$
+则可以找到 $\mathrm{P} (|x| \ge a)$ 的下界。
+$$
+\mathrm{E} (f(x)) = \int_E f(x) \mathrm{P}(dE) =  \int_{\{ |x| < a \}} f(x) \mathrm{P}(dE) +  \int_{\{ |x| \ge a \}} f(x) \mathrm{P}(dE) \le f(a) \mathrm{P}(|x| < a) + K \mathrm{P}(|x| \ge a) \le f(a) + K \mathrm{P}(|x| \ge a)
+$$
+
+
+因此
+$$
+\tag{7}
+\mathrm{P} (|x| \ge a) \ge \frac{\mathrm{E}\{f(x\} - f(a) }{K}
+$$
+如果不是 $f(x)$ 有界，而是 $x$ 本身有界，即
+$$
+|x| \le M
+$$
+则 $f(x) \le f(M)$，并且可得如下不等式
+$$
+\tag{8}
+\mathrm{P} (|x| \ge a) \ge \frac{\mathrm{E}\{f(x)\} - f(a) }{f(M)}
+$$
+当 $f(x) = x^2$ 时，由
+
+公式 $(8)$ 可得
+$$
+\tag{9}
+\mathrm{P} (|x| \ge a) \ge \frac{\mathrm{E}(x^2) - a^2 }{M^2}
+$$
+
+
+
+
 
 ### 收敛判据
 
+假定
+$$
+\tag{1}
+x_1, x_2, \dots, x_n, \dots
+$$
+为随机变量序列，$f(x)$ 为非负偶函数， 且当 $x > 0$ 时 $f(x)$ 单调递增[^4.5]，则以下定理成立：
+
+**定理 I**：序列 $(1)$ 依概率收敛的充分条件是：对任意 $\epsilon > 0$，总存在 $n$，使得对每一个 $p > 0$，以下不顾吃成立：
+$$
+\tag{2}
+\mathrm{E} \{ f(x_{n + p} - x_n) \} < \epsilon 
+$$
+**定理 II**：序列 $(1)$ 依概率收敛到随机变量 $x$ 的充分条件是：
+$$
+\tag{3}
+\lim_{n \rightarrow + \infin} \mathrm \{ f(x_n - x) \} = 0
+$$
+**定理 III**：如果 $f(x)$ 有界且连续，并且 $f(0) = 0$，则定理 **I** 和 **II** 中的充分条件也为必要条件。 
+
+**定理 IV**：如果 $f(x)$ 连续，$f(0) = 0$，且序列 $x_1, x_2, \dots, x_n, \dots, x$ 是有界的，则定理 **I** 和 **II** 中的充分条件也为必要条件。 
+
+由定理 **II** 和定理 **IV** 可得定理 **V**：
+
+**定理 V**：序列 $(1)$ 依概率收敛的充分条件是：
+$$
+\tag{4}
+\lim \mathrm{E} (x_n - x)^2 = 0
+$$
+如果序列 x1,x2,…,xn,…,x 是有界的，则此充分条件也为必要条件。
+
+定理 **I** - **IV** 的证明见 Slutsky [1]、Fréchet [1]。不过，由上一节的公式 $(3)$ 和 $(8)$ 也可立即推得这些定理。
+
+
+
 ### 数学期望对参数的微分和积分
 
+现在将每个基本事件 $\xi$ 对应到一个定义在实变量 $t$ 上的确定的实函数 $x(t)$。如果对于每一个固定的 $t$，变量 $x(t)$ 是随机变量，则称 $x(t)$ 为随机函数（random variable）。现在的问题是，在什么条件下数学期望符号（$\mathrm{E}(x)$）可以与积分符号（$\int$）及微分符号（$dx$）互换。接下来的两个定理，尽管无法穷尽这个问题，但它们可以在许多简单的情况下给出足够令人满意的答案。
 
+**定理 I**：如果对于任意的 $t$，数学期望 $\mathrm{E}[x(t)]$ 是有限的，且 $x(t)$ 总是可微的，同时 $x(t)$ 对 $t$  的导数 $x'(t)$ 的绝对值总是小于某个常数 $M$，则有
+$$
+\frac{d}{dt} \mathrm{E} (x(t)) = \mathrm{E}(x'(t))
+$$
+**定理 II**：如果 $x(t)$ 的绝对值总是小于某个常数 $K$，且黎曼可积（integrable in the Riemann sense[^*]），并且 $\mathrm{E} [x(t)]$ 也是黎曼可积的，则
+$$
+\int_a ^b \mathrm{E} (x(t)) dt = \mathrm{E} [ \int_a ^b x(t) dt ]
+$$
+**定理 I 的证明**：假设 $x'(t)$ 为以下随机变量的极限：
+$$
+\frac{x(t + h) - x(t)}{h} \qquad h = 1, \frac{1}{2}, \dots, \frac{1}{n}, \dots
+$$
+ $x'(t)$ 也是随机变量。因为 $x'(t)$ 是有界的，所以数学期望 $\mathrm{E} [x'(t)]$ 存在（第 2 节，数学期望的性质 VII）。
+
+
+
+
+
+
+
+
+
+[^*]: 对于定义在闭区间 $[a, b]$ 上的有界函数 $f(x)$，若以下极限存在且唯一，则称 $f(x)$ 在 $[a, b]$ 上黎曼可积：
+
+$$
+\int_a^b f(x) \, dx = \lim_{\|P\| \to 0} \sum_{i=1}^n f(\xi_i) \Delta x_i
+$$
+
+ 其中：
+
+- 分割（Partition）：将区间 $[a, b]$ 分为子区间 $[x_{i - 1}, x_i]$，记分割为 $P = \{ x_0, x_1, \dots, x_n \}$。
+- 样本点（Tag）：在每个子区间中任取一点 $\xi _i \in [x_{i - 1}, x_i]$。
+- 黎曼和（Riemann Sum）：$\sum_{i=1}^n f(\xi_i) \Delta x_i$，其中 $\Delta x_i = x_i - x_{i - 1}$。
+- 分割的模（Norm）：$||P|| = \max \Delta x_i$，表示最大子区间长度。
+
+当所有可能的黎曼和在 $||P|| \rightarrow 0$ 时趋于同一极限，则此极限为黎曼积分。
 
 
 
@@ -1462,7 +1611,7 @@ $$
 
 [^4.4]: 参考 V. GLIVENKO, Sur les valeurs probables de fonctions, Rend. Accad. Lincei v. 8, 1928, pp. 480-483.
 
-
+[^4.5]: 因此当 $x \ne 0$ 时，$f(x) > 0$。
 
 
 
@@ -1500,12 +1649,12 @@ $$
 
 ## 关于补充参考文献的说明
 
+
+
 ## 补充参考文献
+
+[1] ALDA, V., On Conditional Expectations, Czechoslovak Math. J., Vol. 5 (1955), pp. 503–505.
 
 
 
 ## 注
-
-
-
-[^3.6]:
