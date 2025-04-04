@@ -1564,7 +1564,7 @@ $$
 
 **定理 I**：如果对于任意的 $t$，数学期望 $\mathrm{E}[x(t)]$ 是有限的，且 $x(t)$ 总是可微的，同时 $x(t)$ 对 $t$  的导数 $x'(t)$ 的绝对值总是小于某个常数 $M$，则有
 $$
-\frac{d}{dt} \mathrm{E} (x(t)) = \mathrm{E}(x'(t))
+\frac{d}{dt} \mathrm{E} [x(t)] = \mathrm{E}[x'(t)]
 $$
 **定理 II**：如果 $x(t)$ 的绝对值总是小于某个常数 $K$，且黎曼可积（integrable in the Riemann sense[^*]），并且 $\mathrm{E} [x(t)]$ 也是黎曼可积的，则
 $$
@@ -1574,7 +1574,62 @@ $$
 $$
 \frac{x(t + h) - x(t)}{h} \qquad h = 1, \frac{1}{2}, \dots, \frac{1}{n}, \dots
 $$
- $x'(t)$ 也是随机变量。因为 $x'(t)$ 是有界的，所以数学期望 $\mathrm{E} [x'(t)]$ 存在（第 2 节，数学期望的性质 VII）。
+ $x'(t)$ 也是随机变量。因为 $x'(t)$ 是有界的，所以数学期望 $\mathrm{E} [x'(t)]$ 存在（第 2 节，数学期望的性质 VII）。现在固定 $t$，记以下事件为 $A$：
+$$
+| \frac{x(t + h) - x(t)}{h} - x'(t) | > \epsilon
+$$
+对于每一个 $\epsilon > 0$，当 $h \rightarrow 0$ 时，概率 $\mathrm{P} (A)$ 趋近于 $0$。因为
+$$
+| \frac{x(t + h) - x(t)}{h} | \le M
+$$
+和 $|x(t)| \le M$ 总是成立的【前一个有定理 I 中导数有界可知，第二个为何总是成立？】，并且事件 $A$ 的对立事件 $\bar{A}$ 为
+$$
+| \frac{x(t + h) - x(t)}{h} - x'(t) | \le \epsilon
+$$
+因此
+$$
+| \frac{\mathrm{E} [x(t + h)] - \mathrm{E} [x(t)]}{h} - \mathrm{E} [x'(t)] | \le \mathrm{E} | \frac{x(t + h) - x(t)}{h} - x'(t) | = \mathrm{P} (A) \mathrm{E}_A | \frac{x(t + h) - x(t)}{h} - x'(t) | + \mathrm{P} (\bar{A}) \mathrm{E}_{\bar{A}} | \frac{x(t + h) - x(t)}{h} - x'(t) | \le 2 M \mathrm{P} (A) + \epsilon
+$$
+
+选择任意的 $\epsilon > 0$，对于任何足够小的 $h$，$\mathrm{P}(A)$ 可以任意小。因此有
+$$
+\frac{d}{dt} \mathrm{E} [x(t)] = \lim _{h \rightarrow 0} \frac{\mathrm{E} [x(t + h)] - \mathrm{E} [x(t)]}{h} = \mathrm{E} [x'(t)]
+$$
+定理 I 得证。
+
+**定理 II 的证明**：令
+$$
+S_n = \frac{1}{h} \sum_{k = 1} ^{k = n} x(t + kh), \qquad h = \frac{b - a}{n}
+$$
+因为 $S_n$ 收敛于 $J = \int_a ^b x(t) dt$，我们可以选择任意的 $\epsilon > 0$ 和 $N$，使得当 $n \ge N$ 时，以下不等式成立
+$$
+\mathrm{P} (A) = \mathrm{P} \{ |S_k - J| > \epsilon \} < \epsilon
+$$
+如果令
+$$
+S_n^* = \frac{1}{h} \sum_{k = 1} ^{k = n} \mathrm{E} [x(t + kh)] = \mathrm{E} (S_n)
+$$
+则
+$$
+|S_n^* - \mathrm{E}(J)| = | \mathrm{E}(S_n - J) | \le \mathrm{E} |S_n - J| = P(A) \mathrm{E}_A |S_n - J| + \mathrm{P} (\bar{A}) \mathrm{E}_{\bar{A}} |S_n - J|_i \le 2K \mathrm{P} (A) + \epsilon \le (2K + 1) \epsilon
+$$
+因此 $S_n^*$ 收敛于 $\mathrm{E}(J)$，由此得
+$$
+\int_a ^b \mathrm{E} [x(t)] dt = \lim S_n^* = \mathrm{E}(J)
+$$
+定理 II 可以很容易推广到二重、三重以及更高阶的多重积分。此处给出这个定理在几何概率中的一个应用。令 $G$ 为某一平面上的可测度区域，该平面的形状是随机的。换种方式表述即为，对概率域中的每个基本事件 $\xi$ ，为其指定一个可测平面 $G$。将区域 $G$ 的面积记为 $J$，点 $(x, y)$ 属于区域 $G$ 的概率记为 $\mathrm{P}(x, y)$。则
+$$
+\mathrm{E} (J) = \int \int \mathrm{P} (x, y) dx dy
+$$
+要证明这一关系，只需记
+$$
+J = \int \int f(x, y) dx dy \\
+\mathrm{P}(x, y) = \mathrm{E} f(x, y)
+$$
+其中 $f(x, y)$ 是区域 $G$ 的示性函数（characteristic function）（在 $G$ 上 $f(x, y) = 1$，在 $G$ 外 $f(x, y) = 0$）[^4.6]。
+
+
+
 
 
 
@@ -1613,7 +1668,7 @@ $$
 
 [^4.5]: 因此当 $x \ne 0$ 时，$f(x) > 0$。
 
-
+[^4.6]: 参考A. KOLMOGOROV and M. LEONTOVICH, Zur Berechnung der mittleren Brownschen Fläche, Physik. Zeitschr. d. Sovietunion, v. 4, 1933.
 
 
 
