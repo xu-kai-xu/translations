@@ -60,7 +60,7 @@ $$
 
 
 
-### 随机变量的独立性
+### 独立随机变量
 
 如果 $x_1, x_2, \dots, x_n$ 是相互独立的随机变量，则根据本章上一节的公式 $(2)$ 可得以下公式
 $$
@@ -145,7 +145,319 @@ $$
 
 ### 大数定律
 
+对于随机变量 $s$ 的序列
+$$
+s_1, s_2, \dots, s_n, \dots
+$$
+如果存在数值序列
+$$
+d_1, d_2, \dots, d_n, \dots
+$$
+使得对任意的正的 $\epsilon$，当 $n \rightarrow \infin$ 时，概率
+$$
+\mathrm{P} \{ |s_n - d_n| \ge \epsilon \}
+$$
+收敛到 $0$，则称随机变量 $s$ 的序列是稳定的。如果所有的 $\mathrm{E} (s_n)$ 都存在并且令
+$$
+d_n = \mathrm{E}(s_n)
+$$
+则此稳定性是正规的（the stability is normal）。
+
+如果所有的 $s_n$ 都是一致有界的（uniformly bounded），则根据下式
+$$
+\tag{1}
+\mathrm{P} \{ |s_n - d_n| \ge \epsilon \} \rightarrow 0 \qquad n \rightarrow + \infin
+$$
+可得
+$$
+|\mathrm{E}(s_n) - d_n| \rightarrow 0  \qquad n \rightarrow + \infin 
+$$
+并且可得
+$$
+\tag{2}
+\mathrm{P} \{ |s_n - \mathrm{E}(s_n)| \ge \epsilon \} \rightarrow 0 \qquad n \rightarrow + \infin
+$$
+因此有界稳定序列的稳定性必然是正规的。
+
+令
+$$
+\mathrm{E} (s_n - \mathrm{E}(s_n)) ^2 = \sigma ^2 (s_n) = \sigma_n ^2
+$$
+则由切比雪夫不等式（Tchebycheff inequality）可得
+$$
+\mathrm{P} \{ |s_n - d_n| \ge \epsilon \} \le \frac{\sigma ^2 _n}{\epsilon ^2}
+$$
+因此，马尔可夫条件（the Markov Condition）
+$$
+\tag{3}
+\sigma^2 _n \rightarrow 0 \qquad  \qquad n \rightarrow + \infin
+$$
+是正规稳定的充分条件。
+
+如果 $s_n - \mathrm{E}(s_n)$ 是一致有界的，即
+$$
+|s_n - \mathrm{E}(s_n)| \le M
+$$
+则由第四章第 $3$ 节的公式 $(9)$ 可得
+$$
+\mathrm{P} \{ | s_n - \mathrm{E}(s_n) | \ge \epsilon \} \ge \frac{\sigma^2 _n - \epsilon ^2}{M^2}
+$$
+因此这种情况下马尔可夫条件（公式 $(3)$）仍然是序列 $s_n$ 稳定的必要条件。
+
+如果
+$$
+s_n = \frac{x_1 + x_2 + \dots + x_n }{n}
+$$
+并且变量 $x_n$ 两两互不相关（uncorrelated in pairs），则有
+$$
+\sigma^2 _n = \frac{1}{n^2} \{ \sigma^2(x_1) + \sigma^2(x_2) + \dots + \sigma^2(x_n) \}
+$$
+所以此时以下条件是随机变量序列 $s_n$ 的算数平均正规稳定的充分条件（切比雪夫定理[^6.&]）
+$$
+\tag{4}
+n^2 \sigma_n ^2 = \sigma^2(x_1) + \sigma^2(x_2) + \dots + \sigma^2(x_n)  = o(n^2)
+$$
+特别地，如果所有的 $x_n$ 都是一致有界的，则公式 $(4)$ 中的条件得到满足。
+
+此定理可以推广到弱相关（weakly correlated）变量 $x_n$ 的情形。假设变量 $x_m$ 和 $x_n$ 的相关系数 $r_{mn}$[^6.1] 满足以下不等式
+$$
+r_{mn} \le c (|n - m|)
+$$
+并且
+$$
+C_n = \sum ^{k = n - 1} _{k = 0} c(k)
+$$
+则 $s$ 的算数平均的正规稳定性的充分条件是[^6.2]
+$$
+\tag{5}
+C_n \sigma^2 _n = o(n^2)
+$$
+
+在 $x_n$ 为独立和项[^6.*]（independent summands）的情况下，可以给出 $s_n$ 的算数平均稳定性的充要条件。 对每一个 $x_n$，都存在一个常数 $m_n$（$x_n$ 的中位数），满足如下条件
+$$
+\mathrm{P} (x_n < m_n) \le \frac{1}{2} \\
+\mathrm{P} (x_n > m_n) \le \frac{1}{2}
+$$
+令
+$$
+x_{nk} = x_k \qquad \text{if} \quad  |x_k - x_m| \le n ,\\
+x_{nk} = 0 \qquad \text{otherwise}, \\
+s_n^* = \frac{x_{n1} + x_{n2} + \dots + x_{nn} }{n}
+$$
+则以下公式分别为 $s_n$ 稳定的必要和充分条件[^6.3]
+$$
+\tag{6}
+\sum ^{k = n} _{k = 1} \mathrm{P} \{ |x_k - m_k| > n \} = \sum ^{k = n} _{k = 1} \mathrm{P} (x_{nk} \ne x_k) \rightarrow 0, \qquad n \rightarrow + \infin
+$$
+
+$$
+\tag{7}
+\sigma^2 (s^*_n) = \sum ^{k = n} _{k = 1}  \sigma^2 (x_{nk}) = o(n^2)
+$$
+
+在此假设常数 $d_n$ 等于 $\mathrm{E}(s_n ^*)$，则在（并且只在）以下条件成立时，$s_n$ 的稳定是正规的。
+$$
+\mathrm{E}(s^*_n) - \mathrm{E}(s_n) \rightarrow 0, \qquad n \rightarrow + \infin
+$$
+如果假设 $s_n$ 以某种方式依赖于任意 $n$ 次试验的结果（如下），则可以得到切比雪夫定理更进一步的推广结果。
+$$
+\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_n
+$$
+这样当所有这 $n$ 次试验的每个结果都确定后，$s_n$ 也随之确定。所有这些被称为**大数定律**（the law of large numbers）的定理，其大体思路在于，若对于较大的 $n$，变量 $S_n$ 对每个单独的试验 $\mathcal{U}_k \quad (k = 1, 2, \dots, n)$ 的依赖性非常弱，则变量 $S_n$ 是稳定的。如果把
+$$
+\beta ^2 _{nk} = \mathrm{E} [ \mathrm{E}_{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_k} (s_n) - \mathrm{E} _{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_{k - 1}} (s_n)]^2
+$$
+作为衡量 $s_n$ 对试验 $\mathcal{U_k}$ 的依赖性的一个合理的测度，则上述提到的大数定律的大体思路可在以下论证后更加坚实具体[^6.4]。
+
+令
+$$
+z_{nk} = \mathrm{E}_{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_k} (s_n) - \mathrm{E} _{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_{k - 1}} (s_n)
+$$
+则
+$$
+s_n - \mathrm{E}(s_n) = z_1 + z_2 + \dots + z_n \\
+\mathrm{E}(z_{nk}) = \mathrm{E} [\mathrm{E}_{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_k} (s_n) - \mathrm{E} _{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_{k - 1}} (s_n)] = \mathrm{E}(s_n) - \mathrm{E}(s_n) = 0 \\
+\sigma^2 (z_{nk}) = \mathrm{E} (z^2 _{nk}) = \beta ^2 _{nk}
+$$
+
+
+并且可以很容易计算出随机变量 $z_{nk} \quad (k = 1, 2, \dots, n)$ 是不相关的。令 $i < k$，则[^6.5]
+$$
+\mathrm{E}_{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_{k - 1}} (z_{ni} z_{nk}) = z_{ni} \mathrm{E}_{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_{k - 1}} (z_{nk}) = z_{ni}  \mathrm{E}_{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_{k - 1}} [ \mathrm{E}_{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_k} (s_n) - \mathrm{E} _{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_{k - 1}} (s_n) ] = z_{ni} [ \mathrm{E}_{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_{k - 1}} (s_n) - \mathrm{E} _{\mathcal{U}_1, \mathcal{U}_2, \dots, \mathcal{U}_{k - 1}} (s_n) ] = 0
+$$
+因此
+$$
+\mathrm{E}(z_{ni} z_{nk}) = 0
+$$
+由此可得
+$$
+\sigma^2 (s_n) = \sigma^2 (z_{n1}) + \sigma^2 (z_{n2}) + \dots + \sigma^2 (z_{nn}) = \beta^2 _{n1} + \beta^2 _{n2} + \dots + \beta^2 _{nn}
+$$
+因此，以下公式
+$$
+\beta^2 _{n1} + \beta^2 _{n2} + \dots + \beta^2 _{nn} \rightarrow 0 \qquad n \rightarrow 0
+$$
+为 $s_n$ 正规稳定的充分条件。
+
+
+
 ### 关于数学期望概念的说明
 
+由前文内容可知，随机变量 $x$ 的数学期望定义为
+$$
+\mathrm{E} (x) = \int _{E} \mathrm{P}(dE) = \int ^{+ \infin} _{- \infin} a d F^{x}(a)
+$$
+其中上式右侧的积分可解释如下
+$$
+\tag{1}
+\mathrm{E} (x) = \int ^{+ \infin} _{- \infin} a d F^{x}(a) = \lim _{b \rightarrow - \infin, c \rightarrow +\infin} \int _b ^c a d F^{x}(a)
+$$
+因此，下式可称为一种广义数学期望（a generalized mathematical expectation）
+$$
+\tag{2}
+\mathrm{E}^* (x) = \lim _{b \rightarrow + \infin} \int _{-b} ^{+b} a \, d F^{x}(a)
+$$
+当然在这种情况下会失去数学期望的一些简单性质。丽日此时
+$$
+\mathrm{E} (x + y) = \mathrm{E}(x) + \mathrm{E}(y)
+$$
+并不总是成立。以这种方式的推广几乎是难以接受的。但如果加上一些限制性的补充条件的话，定义 $(2)$ 就变得完全自然且实用了。
+
+可以按如下方式讨论此问题，令
+$$
+x_1, x_2, \dots, x_n, \dots
+$$
+为相互独立的随机变量序列，并且这个随机变量序列与随机变量 $x$ 有相同的分布函数，即 $F^{(x)}(a) = F^{(x_n)}(a), \quad (n = 1, 2, \dots)$。进一步令
+$$
+s_n = \frac{x_1 + x_2 + \dots + x_n}{n}
+$$
+此时请问，是否存在一个常量 $\mathrm{E}^* (x)$，满足对任意的 $\epsilon > 0$，下式都成立
+$$
+\tag{3}
+\lim \mathrm{P} (| s_n - \mathrm{E}^*(x) | > \epsilon) = 0, \qquad n \rightarrow + \infin 
+$$
+答案：如果常量 $\mathrm{E}^*(x)$ 存在，则它可以由公式 $(2)$ 表示。公式 $(3)$ 成立的充要条件为：1）公式 $(2)$ 表示的极限存在；2）公式 $(4)$ 表示的关系成立。
+$$
+\tag{4}
+\mathrm{P} (|x| > n) = o(\frac{1}{n})
+$$
+为证明此结论，我们应用如下定理：
+
+> 条件 $(4)$ 是算数平均 $s_n$ 稳定的充要条件。
+
+当 $s_n$ 稳定时令[^6.6]
+$$
+d_n = \int ^{+n} _{-n} a F^{(x)}(a)
+$$
+如果存在公式 $(1)$ 定义的数学期望，则条件 $(4)$ 总是可以得到满足[^6.7]。因为此时 $\mathrm{E}(x) = \mathrm{E}^* (x)$，所以条件 $(3)$ 实际上确实定义了数学期望概念的一种推广。对于此广义的数学期望，性质 I - VII（第四章第 $2$ 节）仍然成立。但 $\mathrm{E}^*(x)$ 的存在并不能推出 $\mathrm{E}^* |x|$ 的存在。
+
+为证明新的数学期望的概念比先前的概念更具普遍性，只需给出以下示例即可。令概率密度函数 $f^{(x)}(a)$ 如下
+$$
+f^{(x)} (a) = \frac{C}{(|a| + 2)^2 \ln (|a| + 2)}
+$$
+其中常量 $C$ 由下式确定
+$$
+\int ^{+ \infin} _{- \infin} f^{(x)} (a) \, da = 1
+$$
+很容易计算得出，此时条件 $(4)$ 得到满足。由公式 $(2)$ 可得
+$$
+\mathrm{E}^* (x) = 0
+$$
+但积分
+$$
+\int ^{+ \infin} _{- \infin} |a| \, dF^{(x)} (a) \, da = \int ^{+ \infin} _{- \infin} |a| \, f^{(x)} (a) \, da
+$$
+是发散的。
+
+
+
 ### 强大数定律；级数收敛
+
+以下序列
+$$
+s_1, s_2, \dots, s_n, \dots
+$$
+的随机变量记为 $s_n$ 。如果存在实数序列
+$$
+d_1, d_2, \dots, d_n, \dots
+$$
+使得当 $n \to + \infin$ 时随机变量
+$$
+s_n - d_n
+$$
+几乎处处趋近于 $0$，则 $s_n$ 是强稳定的。显然由强稳定性可推得普通稳定性（ordinary）。如果令
+$$
+d_n = \mathrm{E} (s_n)
+$$
+则此时的强稳定是正规强稳定（normal）。
+
+在切比雪夫情形（见本章第 $3$ 节）下
+$$
+s_n = \frac{x_1 + x_2 + \dots + x_n}{n}
+$$
+其中 $x_n$ 是相互独立的。此时以下序列的收敛是 $s_n$ 正规稳定的一个充分条件[^6.8]
+$$
+\tag{1}
+\sum^{\infin}_{n = 1} \frac{\sigma^2(x_n)}{n^2}
+$$
+从某种意义上看，这个条件是最优的。因为对任意满足以下条件的 $b_n$
+$$
+\sum^{\infin}_{n = 1} \frac{b_n}{n^2} = + \infin
+$$
+我们都可以构造一个相互独立的随机变量 $x_n$ 的序列，满足 $\sigma^2(x_n) = b_n$，使得 $s_n$ 不是强稳定的。
+
+如果所有的 $x_n$ 都有相同的分布函数 $F^{(x)} (a)$，则数学期望
+$$
+\mathrm{E}(x) = \int^{+ \infin} _{- \infin} a \, dF^{(x)} (a)
+$$
+的存在性是 $s_n$ 强稳定的充分必要条件，并且此时的稳定性总是正规的[^6.9]。
+
+令
+$$
+x_1, x_2, \dots, x_n, \dots
+$$
+为相互独立的随机变量，则级数
+$$
+\tag{2}
+\sum^{\infin}_{n = 1} x_n
+$$
+收敛的概率要么等于 $1$，要么等于 $0$。特别地，当以下两个级数都收敛时，级数 $(2)$ 收敛的概率等于 $1$
+$$
+\sum^{\infin}_{n = 1} \mathrm{E}(x_n)
+\\
+\sum^{\infin}_{n = 1} \sigma^2(x_n)
+$$
+进一步假设
+$$
+y_n = x_n \qquad \text{in case} \quad |x_n| \le 1
+\\
+y_n = 0 \qquad \text{in case} \quad |x_n| > 1
+$$
+则为级数 $(1)$ 依概率 $1$ 收敛的充分必要条件[^6.10]是，以下级数同时收敛
+$$
+\sum^{\infin}_{n = 1} \mathrm{P} \{ |x_n| > 1 \} \\
+\sum^{\infin}_{n = 1} \mathrm{E}(y_n) \\
+\sum^{\infin}_{n = 1} \sigma^2 (y_n)
+$$
+
+
+
+
+[^6.1]: 显然 $r_{nn}$ 总是等于 $1$。
+[^6.&]: 译者注。大 $O$ 记号，表示增长率不超过 $n^2$（可能等于 $n^2$）；小 $o$ 记号，要求更严格，要求增长率必须低于 $n^2$。
+[^6.2]:Cf. A. KHINTCHINE, Sur la loi forte des grandes nombres. C. R. de l’acad. sci. Paris v. 186, 1928, p. 285.
+
+[^6.*]:指随机变量序列 $x_n$ 中各项相互独立，且参与求和。
+[^6.3]: Cf. A. KOLMOGOROV. Über die Summen durch den Zufall bestimmter unabhängiger Grössen, Math. Ann. v. 99, 1928, pp. 309-319 (corrections and notes to this study, v. 102, 1929 pp. 484-488, Theorem VIII and a supplement on p. 318).
+[^6.4]:  Cf. A. KOLMOGOROV. Sur la loi des grandes nombres. Rend. Accad. Lincei v. 9, 1929 pp. 470-474.
+[^6.5]: 第五章第 $4$ 节公式 $(15)$ 的应用。
+
+[^6.6]: Cf. A. KOLMOGOROV, Bemerkungen zu meiner Arbeit, “Über die Summen zufälliger Grössen.” Math. Ann. v. 102, 1929, pp. 484-488, Theorem XII.
+[^6.7]: Ibid, Theorem XIII.（同上，定理 XIII。）
+
+[^6.8]: Cf. A. KOLMOGOROV, Sur la loi forte des grandes nombres , C. R. Acad. Sci. Paris v. 191, 1930, pp. 910-911.
+[^6.9]: The proof of this statement has not yet been published.
+[^6.10]: Cf. A. KHINTCHINE and A. KOLMOGOROV, On the Convergence of Series, Rec. Math. Soc. Moscow, v. 32, 1925, p. 668-677.
+
+
 

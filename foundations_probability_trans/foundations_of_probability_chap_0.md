@@ -50,4 +50,3 @@ Kljasma near Moscow
 [^0.2]: 暂不确定此人是谁。
 [^0.3]: 原文脚注1，Zur Statistik der kontinuierlichen Systeme und des zeitlichen Verlaufes der physikalischen Vorgange. Phys. Jour, of the USSR, Vol. 3, 1933, pp. 35-63. 标题英文为 *On the statistics of continuous systems and the temporal evolution of physical processes*.
 
-

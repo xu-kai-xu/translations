@@ -2014,33 +2014,494 @@ $$
 
 
 
-## 独立性；大数定律
 
-### 独立性
+因此
+$$
+\mathrm{E}(z_{ni} z_{nk}) = 0
+$$
+由此可得
+$$
+\sigma^2 (s_n) = \sigma^2 (z_{n1}) + \sigma^2 (z_{n2}) + \dots + \sigma^2 (z_{nn}) = \beta^2 _{n1} + \beta^2 _{n2} + \dots + \beta^2 _{nn}
+$$
+因此，以下公式
+$$
+\beta^2 _{n1} + \beta^2 _{n2} + \dots + \beta^2 _{nn} \rightarrow 0 \qquad n \rightarrow 0
+$$
+为 $s_n$ 正规稳定的充分条件。
 
-### 随机变量的独立性
 
-### 大数定律
 
 ### 关于数学期望概念的说明
 
+由前文内容可知，随机变量 $x$ 的数学期望定义为
+$$
+\mathrm{E} (x) = \int _{E} \mathrm{P}(dE) = \int ^{+ \infin} _{- \infin} a d F^{x}(a)
+$$
+其中上式右侧的积分可解释如下
+$$
+\tag{1}
+\mathrm{E} (x) = \int ^{+ \infin} _{- \infin} a d F^{x}(a) = \lim _{b \rightarrow - \infin, c \rightarrow +\infin} \int _b ^c a d F^{x}(a)
+$$
+因此，下式可称为一种广义数学期望（a generalized mathematical expectation）
+$$
+\tag{2}
+\mathrm{E}^* (x) = \lim _{b \rightarrow + \infin} \int _{-b} ^{+b} a \, d F^{x}(a)
+$$
+当然在这种情况下会失去数学期望的一些简单性质。丽日此时
+$$
+\mathrm{E} (x + y) = \mathrm{E}(x) + \mathrm{E}(y)
+$$
+并不总是成立。以这种方式的推广几乎是难以接受的。但如果加上一些限制性的补充条件的话，定义 $(2)$ 就变得完全自然且实用了。
+
+可以按如下方式讨论此问题，令
+$$
+x_1, x_2, \dots, x_n, \dots
+$$
+为相互独立的随机变量序列，并且这个随机变量序列与随机变量 $x$ 有相同的分布函数，即 $F^{(x)}(a) = F^{(x_n)}(a), \quad (n = 1, 2, \dots)$。进一步令
+$$
+s_n = \frac{x_1 + x_2 + \dots + x_n}{n}
+$$
+此时请问，是否存在一个常量 $\mathrm{E}^* (x)$，满足对任意的 $\epsilon > 0$，下式都成立
+$$
+\tag{3}
+\lim \mathrm{P} (| s_n - \mathrm{E}^*(x) | > \epsilon) = 0, \qquad n \rightarrow + \infin 
+$$
+答案：如果常量 $\mathrm{E}^*(x)$ 存在，则它可以由公式 $(2)$ 表示。公式 $(3)$ 成立的充要条件为：1）公式 $(2)$ 表示的极限存在；2）公式 $(4)$ 表示的关系成立。
+$$
+\tag{4}
+\mathrm{P} (|x| > n) = o(\frac{1}{n})
+$$
+为证明此结论，我们应用如下定理：
+
+> 条件 $(4)$ 是算数平均 $s_n$ 稳定的充要条件。
+
+当 $s_n$ 稳定时令[^6.6]
+$$
+d_n = \int ^{+n} _{-n} a F^{(x)}(a)
+$$
+如果存在公式 $(1)$ 定义的数学期望，则条件 $(4)$ 总是可以得到满足[^6.7]。因为此时 $\mathrm{E}(x) = \mathrm{E}^* (x)$，所以条件 $(3)$ 实际上确实定义了数学期望概念的一种推广。对于此广义的数学期望，性质 I - VII（第四章第 $2$ 节）仍然成立。但 $\mathrm{E}^*(x)$ 的存在并不能推出 $\mathrm{E}^* |x|$ 的存在。
+
+为证明新的数学期望的概念比先前的概念更具普遍性，只需给出以下示例即可。令概率密度函数 $f^{(x)}(a)$ 如下
+$$
+f^{(x)} (a) = \frac{C}{(|a| + 2)^2 \ln (|a| + 2)}
+$$
+其中常量 $C$ 由下式确定
+$$
+\int ^{+ \infin} _{- \infin} f^{(x)} (a) \, da = 1
+$$
+很容易计算得出，此时条件 $(4)$ 得到满足。由公式 $(2)$ 可得
+$$
+\mathrm{E}^* (x) = 0
+$$
+但积分
+$$
+\int ^{+ \infin} _{- \infin} |a| \, dF^{(x)} (a) \, da = \int ^{+ \infin} _{- \infin} |a| \, f^{(x)} (a) \, da
+$$
+是发散的。
+
+
+
 ### 强大数定律；级数收敛
+
+以下序列
+$$
+s_1, s_2, \dots, s_n, \dots
+$$
+的随机变量记为 $s_n$ 。如果存在实数序列
+$$
+d_1, d_2, \dots, d_n, \dots
+$$
+使得当 $n \to + \infin$ 时随机变量
+$$
+s_n - d_n
+$$
+几乎处处趋近于 $0$，则 $s_n$ 是强稳定的。显然由强稳定性可推得普通稳定性（ordinary）。如果令
+$$
+d_n = \mathrm{E} (s_n)
+$$
+则此时的强稳定是正规强稳定（normal）。
+
+在切比雪夫情形（见本章第 $3$ 节）下
+$$
+s_n = \frac{x_1 + x_2 + \dots + x_n}{n}
+$$
+其中 $x_n$ 是相互独立的。此时以下序列的收敛是 $s_n$ 正规稳定的一个充分条件[^6.8]
+$$
+\tag{1}
+\sum^{\infin}_{n = 1} \frac{\sigma^2(x_n)}{n^2}
+$$
+从某种意义上看，这个条件是最优的。因为对任意满足以下条件的 $b_n$
+$$
+\sum^{\infin}_{n = 1} \frac{b_n}{n^2} = + \infin
+$$
+我们都可以构造一个相互独立的随机变量 $x_n$ 的序列，满足 $\sigma^2(x_n) = b_n$，使得 $s_n$ 不是强稳定的。
+
+如果所有的 $x_n$ 都有相同的分布函数 $F^{(x)} (a)$，则数学期望
+$$
+\mathrm{E}(x) = \int^{+ \infin} _{- \infin} a \, dF^{(x)} (a)
+$$
+的存在性是 $s_n$ 强稳定的充分必要条件，并且此时的稳定性总是正规的[^6.9]。
+
+令
+$$
+x_1, x_2, \dots, x_n, \dots
+$$
+为相互独立的随机变量，则级数
+$$
+\tag{2}
+\sum^{\infin}_{n = 1} x_n
+$$
+收敛的概率要么等于 $1$，要么等于 $0$。特别地，当以下两个级数都收敛时，级数 $(2)$ 收敛的概率等于 $1$
+$$
+\sum^{\infin}_{n = 1} \mathrm{E}(x_n)
+\\
+\sum^{\infin}_{n = 1} \sigma^2(x_n)
+$$
+进一步假设
+$$
+y_n = x_n \qquad \text{in case} \quad |x_n| \le 1
+\\
+y_n = 0 \qquad \text{in case} \quad |x_n| > 1
+$$
+则为级数 $(1)$ 依概率 $1$ 收敛的充分必要条件[^6.10]是，以下级数同时收敛
+$$
+\sum^{\infin}_{n = 1} \mathrm{P} \{ |x_n| > 1 \} \\
+\sum^{\infin}_{n = 1} \mathrm{E}(y_n) \\
+\sum^{\infin}_{n = 1} \sigma^2 (y_n)
+$$
+
+
+
+
+[^6.1]: 显然 $r_{nn}$ 总是等于 $1$。
+[^6.&]: 译者注。大 $O$ 记号，表示增长率不超过 $n^2$（可能等于 $n^2$）；小 $o$ 记号，要求更严格，要求增长率必须低于 $n^2$。
+[^6.2]:Cf. A. KHINTCHINE, Sur la loi forte des grandes nombres. C. R. de l’acad. sci. Paris v. 186, 1928, p. 285.
+
+[^6.*]:指随机变量序列 $x_n$ 中各项相互独立，且参与求和。
+[^6.3]: Cf. A. KOLMOGOROV. Über die Summen durch den Zufall bestimmter unabhängiger Grössen, Math. Ann. v. 99, 1928, pp. 309-319 (corrections and notes to this study, v. 102, 1929 pp. 484-488, Theorem VIII and a supplement on p. 318).
+[^6.4]:  Cf. A. KOLMOGOROV. Sur la loi des grandes nombres. Rend. Accad. Lincei v. 9, 1929 pp. 470-474.
+[^6.5]: 第五章第 $4$ 节公式 $(15)$ 的应用。
+
+[^6.6]: Cf. A. KOLMOGOROV, Bemerkungen zu meiner Arbeit, “Über die Summen zufälliger Grössen.” Math. Ann. v. 102, 1929, pp. 484-488, Theorem XII.
+[^6.7]: Ibid, Theorem XIII.（同上，定理 XIII。）
+
+[^6.8]: Cf. A. KOLMOGOROV, Sur la loi forte des grandes nombres , C. R. Acad. Sci. Paris v. 191, 1930, pp. 910-911.
+[^6.9]: The proof of this statement has not yet been published.
+[^6.10]: Cf. A. KHINTCHINE and A. KOLMOGOROV, On the Convergence of Series, Rec. Math. Soc. Moscow, v. 32, 1925, p. 668-677.
 
 
 
 ## 附录：概率理论中的零一定律
 
+在以上分析中，我们注意到某些极限概率等于零或一的情况。例如，独立随机变量级数收敛的概率只可能是 $0$ 或 $1$ [^A.1]。现在我们证明包括此种情况的一种更广义的定理。
+
+**定理**：令 $x_1, x_2, \dots, x_n, \dots$ 为随机变量，令 $f(x_1, x_2, \dots, x_n, \dots)$ 为 $x_1, x_2, \dots, x_n, \dots$ 的贝尔函数（Baire function）[^A.2]，其中当前 $n$ 个变量 $x_1, x_2, \dots, x_n$ 已知时，对于所有的 $n$，以下关系
+$$
+f(x_1, x_2, \dots, x_n, \dots) = 0
+$$
+成立的条件概率
+$$
+\mathrm{P} _{x_1, x_2, \dots, x_n} \{ f(x) = 0 \}
+$$
+等于绝对概率
+$$
+\tag{1}
+\mathrm{P} \{ f(x) = 0 \}
+$$
+在这些条件下，概率 $(1)$ 等于 $0$ 或者 $1$。
+
+特别地，当 1）变量 $x_n$ 相互独立，并且 2）当仅有有限个变量的值改变时，函数 $f(x)$ 的值保持不变时，此定理的前提成立。
+
+**证明**：用 $A$ 表示事件 $f(x)= 0$。之后来研究由有限个随机变量 $x_n$ 中的关系定义的所有事件构成的域 $\mathcal{R}$。如果事件 $B$ 属于域 $\mathcal{R}$，则根据定理的条件可得
+$$
+\tag{2}
+\mathrm{P}_{B}(A) = \mathrm{P}(A)
+$$
+当 $\mathrm{P}(A) = 0$ 时，此定理显然是正确的。接下来令 $\mathrm{P} (A) > 0$。则根据公式 $(2)$ 可得以下等式
+$$
+\tag{3}
+\mathrm{P}_{A} (B) = \frac{\mathrm{P}_{B}(A) \mathrm{P}(B)}{\mathrm{P}(A)} = \mathrm{P} (B)
+$$
+因此 $\mathrm{P}(B)$ 和 $\mathrm{P}_{A}(B)$ 是在域 $\mathcal{R}$ 上取值相同的两个完全可加集函数。因此它们必定在域 $\mathcal{R}$ 的波莱尔扩展 $B \mathcal{R}$ 的每一个集合上相等。因此，特别地
+$$
+\mathrm{P}(A) = \mathrm{P}_{A} (A) = 1
+$$
+证毕！
+
+其他几个概率只可以取 $0$ 或 $1$ 的几个例子，已由以下文献发现：
+
+>P. Lévy. See P. LÉVY, Sur un théorème de M. Khintchine, Bull, des Sci. Math. v. 55, 1931, pp. 145–160, Theorem II.
+
+
+
+
+
+[^A.1]: 参考第四章第 $5$ 节。在强大数定律条件下，以下概率也是相同的结果（只可能等于 $0$ 或 $1$） $\mathrm{P} \{ s_n - d_n \to 0 \}$。至少当随机变量 $x_n$ 相互独立时是如此。
+
+[^A.2]: 贝尔函数是指那些从多项式出发，通过对函数序列逐次取极限而得到的函数。
+
+
+
 ## 参考文献
+
+[1]. BERNSTEIN, S.: On the axiomatic foundation of the theory of probability. (In Russian). Mitt. Math. Ges. Charkov, 1917, Pp. 209–274.
+
+[2]. — Theory of probability, 2nd edition. (In Russian). Moscow, 1927. Government publication RSFSR.
+
+[1]. BOREL, E.: Les probabilités dénombrables et leurs applications arithmétiques. Rend. Circ. mat. Palermo Vol. 27 (1909) Pp. 247–271.
+
+[2]. — Principes et formules classiques, fasc. 1 du tome I du Traité des probabilités par E. BOREL et divers auteurs. Paris: Gauthier-Villars 1925.
+
+[3]. — Applications à l’arithmétique et à la théorie des fonctions, fasc. 1 du tome II du Traité des probabilités par E. BOREL et divers auteurs. Paris: Gauthier-Villars 1926.
+
+[1]. CANTELLI, F. P. : Una teoria astratta del Calcolo delle probabilità. Giorn. 1st. Ital. Attuari Vol. 3 (1932) pp. 257–265.
+
+[2]. — Sulla legge dei grandi numeri. Mem. Acad. Lincei Vol. 11 (1916).
+
+[3]. — Sulla probabilità come limite della frequenza. Rend. Accad. Lincei Vol. 26 (1917) Pp. 39–45.
+
+[1]. COPELAND H : The theory of probability from the point of view of admissible numbers. Ann. Math. Statist. Vol. 3 (1932) Pp. 143–156.
+
+[1]. DÖRGE, K. : Zu der von R. von Mises gegebenen Begründung der Wahrscheinlichkeitsrechnung. Math. Z. Vol. 32 (1930) Pp. 232–258.
+
+[1]. FRECHET, M.: Sur la convergence en probabilité. Metron Vol. 8 (1930) Pp. 1–48.
+
+[2]. — Recherches théoriques modernes, fasc. 3 du tome I du Traité des probabilités par E. Borel et divers auteurs. Paris: Gauthier-Villars.
+
+[1]. KOLMOGOROV, A.: Über die analytischen Methoden in der Wahrscheinlichkeitsrechnung. Math. Ann. Vol. 104 (1931) Pp. 415–458.
+
+[2]. — The general theory of measure and the theory of probability. (In Russian). Sbornik trudow sektii totshnych nauk K. A., Vol. 1 (1929) pp. 8–21.
+
+[1]. LÉVY, P.: Calcul des probabilités. Paris: Gauthier-Villars.
+
+[1]. LOMNICKI, A.: Nouveaux fondements du calcul des probabilités. Fundam. Math. Vol. 4 (1923) Pp. 34–71.
+
+[1]. MISES, R. v. : Wahrscheinlichkeitsrechnung. Leipzig u. Wien: Fr. Deuticke 1931.
+
+[2]. — Grundlagen der Wahrscheinlichkeitsrechnung. Math. Z. Vol. 5 (1919) pp. 52–99.
+
+[3]. — Wahrscheinlichkeitsrechnung, Statistik und Wahrheit. Wien: Julius Springer 1928.
+
+[3′]. — Probability, Statistics and Truth (translation of above). New York: The MacMillan Company 1939.
+
+[1]. REICHENBACH, H.: Axiomatik der Wahrscheinlichkeitsrechnung. Math. Z. Vol. 34 (1932) Pp. 568–619.
+
+[1]. SLUTSKY, E.: Über stochastische Asymptoten und Grenzwerte. Metron Vol. 5 (1925) Pp. 3–89.
+
+[2]. — On the question of the logical foundation of the theory of probability. (In Russian). Westnik Statistiki, Vol. 12 (1922), pp. 13–21.
+
+[1]. STEINHAUS, H.: Les probabilités dénombrables et leur rapport à la théorie de la mesure. Fundam. Math. Vol. 4 (1923) Pp. 286–310.
+
+[1]. TORNIER, E.: Wahrscheinlichkeitsrechnung und Zahlentheorie. J. reine angew. Math. Vol. 160 (1929) Pp. 177–198.
+
+[2]. — Grundlagen der Wahrscheinlichkeitsrechnung. Acta math. Vol. 60 (1933) Pp. 239–380.
+
+
 
 ## 关于补充参考文献的说明
 
+概率论的测度论方法的奠基性著作是 A. N. 柯尔莫哥洛夫的《Grundbegriffe der Wahrscheinlichkeitsrechnung》（《概率论基本概念》德文版本），本文是其英文翻译版本。可以毫不夸张地说，在过去的二十三年间，大部分概率论研究都受到这一方法的影响，而且柯尔莫哥洛夫提出的公理体系已被概率论与统计学界学者公认为正确的理论基础。
+
+柯尔莫哥洛夫《Grundbegriffe der Wahrscheinlichkeitsrechnung》的出版开启了概率论及其研究方法的新纪元，基于科尔莫戈洛夫提出的基本概念所产生的研究成果非常丰富。在准备科尔莫戈洛夫专著英文译本第二版的过程中，我们认为有必要提供一份能反映概率论研究现状与方向的书目。
+
+近几年出版了许多优秀的（概率论相关的）书籍，其中最具代表性的三部分别是Doob [12]， Feller [17]，和 Loève [54]的作品。以下是涉及概率论通论及概率专题研究的其他著作：[2]，[3]，[6]，[7]，[9]，[19]，[23]，[26]，[27]，[28]，[34]，[39]，[41]，[42]，[47]，[49]，[50]，[67]，[70]，[72]。鉴于这些著作已收录大量文献索引，此处将重点列出近年已发表的研究论文和即将发表的论文。
+
+柯尔莫哥洛夫建立的模型可简要表述如下：在所有包含随机因素的情况中（例如，实验、观测等），都有一个与之关联的概率空间或三元组（$\Omega$，$\xi$，$p$），其中 $\Omega$ 是抽象空间（基本事件的空间），$\xi$ 是 $\Omega$ 的子集（事件的集合）的 $\sigma$ 代数，$p(E)$ 是根据 $E$、$\epsilon$、$\xi$ 定义的一个测度（事件 $E$ 的概率），并且满足 $p(\Omega) = 1$。Loś [56] 最近研究了柯尔莫哥洛夫的模型，他尝试使用抽象代数和集合的 $\sigma$ 代数来代替传统意义上的代数与 $\sigma$ 代数。柯尔莫哥洛夫 [44] 也尝试过在概率论中使用度量布尔代数（metric Boolean algebras）。
+
+有许多问题，尤其是在理论物理领域，无法纳入柯尔莫哥洛夫理论，其原因在于这些问题涉及无界测度（unbounded measures）。Rényi [68] 建立了一种广义的公理化概率理论（该理论将柯尔莫哥洛夫的理论作为一个特例），这一理论允许无界测度的存在。这一理论的基础概念是事件的条件概率。Császár [10] 研究了 Rényi 的理论中的条件概率空间的测度论结构。
+
+在另一个方向上，很多作者指出柯尔莫哥洛夫的理论过于宽泛。Gnedenko 和 柯尔莫哥洛夫 [27] 提出了一种称为**完美概率空间**（perfect probability space）的限制性更强的概念。完美概率空间是这样一个三元组 $(\Omega, \xi, p)$，满足对任意实值 $\xi$ 可测函数 $g$ 和任意线性集 $B$，若集合 $\{ \omega : g(\omega) \in B \} \in \xi$，则存在一个波莱尔集 $D \subseteq B$，满足 $\mathrm{P} \{ \omega : g(\omega) \in D \} = \mathrm{P} \{ \omega : g(\omega) \in B \}$。最近，Blackwell [5] 提出了一个比完美概率空间更严格的概念—— Lisin 空间。Lusin 空间是一个满足如下条件的数对 $(\Omega, \xi)$：
+
+- $\xi$ 是可分的；
+- $\Omega$ 上的每一个实值 $\xi$ 可测函数 $g$ 的值域，是一个解析集（analytic set）。
+
+显然，如果 $(\Omega, \xi, p)$ 是一个 Lusin 空间，并且 $p$ 是 $\xi$ 上的任意概率测度，则 $(\Omega, \xi, p)$ 是一个完美概率空间。
+
+在第六章第 $1$ 节，柯尔莫哥洛夫给出了马尔可夫链的定义。近些年里马尔可夫链理论和马尔可夫过程是概率领域最活跃的研究领域之一。文献 [17] 提供了该理论的一份精彩的导论。其他参考文献包括 [2]， [3]， [6]， [12]， [19]， [23]， [26]， [34]， [39]， [50]， [54]， [67]， [70]， [72]。还有两篇值得关注的论文：Harris 和 Robbins [29] 关于马尔可夫链的各态便利性理论（ergodic theory） ，以及Chung [8] 的关于状态数可数情况下的连续参数过程理论。Chung 提出的理论统一并扩展了 Doob （参考文献 [12]）和 Lévy [51],，[52]， [53] 的研究成果。
+
+一些概率论研究工作者正在利用半群理论[30] 来研究马尔可夫过程及其结构性质 [63]。在这一方法主要是Yosida [80] 提出的，由一个 Banach 空间到自身的单参数（离散或连续）算子半群定义马尔可夫过程。Hille [32] 和 Kato [38] 使用半群方法对柯尔莫哥洛夫微分方程做积分，Kendall 和 Reuter [40] 研究了该理论中出现的一些病态案例。Feller [18] 和 Hille [31] 研究了连续情况下的抛物型微分方程（parabolic differential equations）。Doob [13] 使用半群理论中的鞅论（martingale theory）研究一维扩散过程。Hunt [33] 研究了李群（Lie groups）上的半群（概率）测度。
+
+最近的研究论文致力于使用更抽象的方式研究概率。这些研究探讨具有代数结构的拓扑空间中的随机变量。文献 [14]，[21]，[22]，[58]，[59]，[61] 研究了与巴拿赫空间（Banach space）中的随机变量有关的问题，文献 [4] 研究了 Orlicz 空间（广义勒贝格空间）中的类似问题。Robbins [69] 研究了任意紧致拓扑空间（compact topological group）中的随机变量。Segal [75] 研究了概率代数的结构，并且使用这一代数方法推广了柯尔莫戈洛夫关于具有任意指定联合分布的实值随机变量的存在性定理（参考第三章第 $4$ 节）。Segal [76，第三章第 $13$ 节[^*]] 还研究过非交换概率理论（non-commutative probability theory）。
+
+Prohorov [66] 研究了定义在巴拿赫空间和其他函数空间上的概率分布的收敛性质。LeCam [48] 和 Parzen [64] 也研究过这些问题。
+
+柯尔莫哥洛夫在第四章（以及文献 [12] 和 [54]）中给出了条件概率和条件数学期望的测度论定义和基本性质。使用抽象代数方法，S. T. C. Moy [60] 将条件数学期望的性质视为概率空间上所有的扩展实值可测函数（extended real-valued measurable functions）空间到自身的线性变换。在文献 [61] 中，她研究了巴拿赫空间随机变量的条件数学期望。Nakamura 和 Turamuru [62] 将数学期望视为 $C^*$ 代数的一种给定运算。Umegaki [79] 将条件数学期望作为属于具有 $W^*$ 代数的 $L_1$ 可积类（integrable class）的可测算子空间到自身的映射。Umegaki 的研究发展了非可交换概率理论。以上研究用到了 Segal [74]、Dye [15] 等学者对抽象积分理论的研究成果。其他相关研究论文包括 [1]，[16]，[36]，[45]。
+
+Gel’fand [24] 对广义随机过程（generalized stochastic processes）的研究用到了 L. Schwartz 关于分布的理论（广义函数理论，The L. Schwartz theory of distributions） [73]。后者也被 Fortet [20] 和 Itô [35] 用来研究随机分布。
+
+还有一些研究者致力于研究概率论中的极限定理：[27]，[42]，[47]，[49]。此外，还有必要参考下文献 [12] 和 [54]。另外还有研究论文和综述论文： [11]， [14]， [25]， [37]， [46]， [55]， [57]， [65]， [71]， [77]，[78]。
 
 
-## 补充参考文献
+
+[^*]: 原文有误，第三章仅存在 $5$ 节，可能指第 $3$ 节
+
+
+
+# 补充参考文献
 
 [1] ALDA, V., On Conditional Expectations, Czechoslovak Math. J., Vol. 5 (1955), pp. 503–505.
 
+[2] ARLEY, N., On the Theory of Stochastic Processes and Their Application to the Theory of Cosmic Radiation, Copenhagen, 1943.
+
+[3] BARTLETT, M. S., An Introduction to Stochastic Processes, Cambridge, 1955.
+
+[4] BHARUCHA-REID, A. T., On Random Elements in Orlicz Spaces, (Abstract) Bull. Amer. Math. Soc., Vol. 62 (1956). To appear.
+
+[5] BLACKWELL, D., On a Class of Probability Spaces, Proc. Third Berkeley Symposium on Math. Statistics and Probability, Vol. 2 (1956). To appear.
+
+[6] BLANC-LAPIERRE, A., and R. Fortet, Théorie des fonctions aléatoires, Paris, 1953.
+
+[7] BOCHNER, S., Harmonic Analysis and the Theory of Probability, Berkeley and Los Angeles, 1955.
+
+[8] CHUNG, K. L., Foundations of the Theory of Continuous Parameter Markov Chains, Proc. Third Berkeley Symposium on Math. Statistics and Probabiilty, Vol. 2 (1956). To appear.
+
+[9] CRAMÉR, H., Mathematical Methods of Statistics, Princeton, 1946.
+
+[10] CSÁSZÁR, A., Sur le structure des espace de probabilité conditionnelle, Acta Math. Acad. Sci. Hung., Vol. 6 (1955), pp. 337–361.
+
+[11] DERMAN, C., and H. ROBBINS, The Strong Law of Large Numbers when the First Moment does not Exist, Proc. Nat. Acad. Sci. U.S.A., Vol. 41 (1955), pp.586–587.
+
+[12] DOOB, J. L., Stochastic Processes, New York, 1953.
+
+[13] DOOB, J. L., Martingales and One-Dimensional Diffusion, Trans. Amer. Math. Soc., Vol. 78 (1955), pp. 168–208.
+
+[14] DOSS, S., Sur le théorème limite central pour des variables aléatoires dans espace de Banach, Publ. Inst. Statist. Univ. Paris, Vol. 3 (1954), pp. 143–148.
+
+[15] DYE, H. A., The Radon-Nikodym Theorem for Finite Rings of Operators, Trans. Amer. Math. Soc., 72 (1952), pp. 243–280.
+
+[16] FABIÁN, V., A Note on the Conditional Expectations, Czechoslovak Math. J., Vol. 4 (1954), pp. 187–191.
+
+[17] FELLER, W., An Introduction to Probability Theory and Its Applications, New York, 1950.
+
+[18] FELLER, W., Diffusion Processes in One Dimension, Trans. Amer. Math. Soc., Vol. 77 (1954), pp. 1–31.
+
+[19] FORTET, R., Calcul des probabilités, Paris, 1950.
+
+[20] FORTET, R., Random Distributions with an Application to Telephone Engineering, Proc. Third Berkeley Symposium on Math. Statistics and Probability, Vol. 2 (1956). To appear.
+
+[21] FORTET, R., and E. MOURIER, Résultats complémentaires sur les éléments aléatoires prenant leurs valeurs dans un espace de Banach, Bull. Sci. Math. (2), Vol. 78 (1954), pp. 14–30.
+
+[22] FORTET, R., and E. MOURIER, Les fonctions aléatoires comme éléments aléatoires dans les espace de Banach, Stud. Math., Vol. 15 (1955), pp. 62–79.
+
+[23] FRECHET, M., Recherches théoriques modernes sur le calcul des probabilités. II. Méthode des fonctions arbitraires. Théorie des événements en chaine dans d’un nombre fini d’états possibles, Paris, 1938.
+
+[24] GEL’FAND, I. M., Generalized Random Processes, Doklady Akad. Nauk SSSR (N.S.), Vol. 100 (1955), pp. 853–856. [In Russian.]
+
+[25] GIHMAN, I. L., Some Limit Theorems for Conditional Distributions, Doklady Akad. Nauk SSSR (N.S.), Vol. 91 (1953), pp. 1003–1006. [In Russian.]
+
+[26] GNEDENKO, B. V., Course in the Theory of Probability, Moscow-Leningrad, 1950. [In Russian.]
+
+[27] GNEDENKO, B. V., and A. N. KOLMOGOROV, Limit Distributions for Sums of Independent Random Variables, Translated by K. L. Chung with an appendix by J. L. Doob, Cambridge, 1954.
+
+[28] HALMOS, P. R., Measure Theory, New York, 1950.
+
+[29] HARRIS, T. E., and H. ROBBINS, Ergodic Theory of Markov Chains Admitting an Infinite Invariant Measure, Proc. Nat. Acad. Sci. U.S.A., Vol. 39 (1953), pp. 860–864.
+
+[30] HILLE, E., Functional Analysis and Semi-Groups, New York, 1948.
+
+[31] HILLE, E., On the Integration Problem for Fokker-Planck’s Equation in the Theory of Stochastic Processes, Onzième congrès des math. scand. (1949), pp. 185–194.
+
+[32] HILLE, E., On the Integration of Kolmogoroff’s Differential Equations, Proc. Nat. Acad. Sci. U.S.A., Vol. 40 (1954), pp. 20–25.
+
+[33] HUNT, G. A., Semi-Groups of Measures on Lie Groups, Trans. Amer. Math. Soc., Vol. 81 (1956), pp. 264–293.
+
+[34] ITÔ, K., Theory of Probability, Tokyo, 1953.
+
+[35] ITÔ, K., Stationary Random Distributions, Mem. Coll. Sci. Univ. Kyoto, Ser. A. Math., Vol. 28 (1954), pp. 209–223.
+
+[36] JIŘINA, M., Conditional Probabilities on Strictly Separable σ-Algebras, Czechoslovak Math. J., Vol. 4 (1954), pp. 372–380. [In Czech.]
+
+[37] KALLIANPUR, G., On a Limit Theorem for Dependent Random Variables, Doklady Akad. Nauk SSSR (N.S.) Vol. 101 (1955), pp. 13–16. [In Russian.]
+
+[38] KATO, T., On the Semi-Groups Generated by Kolmogoroff’s Differential Equations, J. Math. Soc. Japan, Vol. 6 (1954), pp. 1–15.
+
+[39] KAWADA, Y., The Theory of Probabiilty, Tokyo, 1952.
+
+[40] KENDALL, D. G., and G. E. H. REUTER, Some Pathological Markov Processes with a Denumerable Infinity of States and the Associated Semigroups of Transformations in l, Proc. Symp. on Stochastic Processes (Amsterdam), 1954. To appear.
+
+[41] KHINTCHINE, A., Asymptotische Gesetze der Wahrscheinlichkeitsrechnung, Berlin, 1933. [Reprint, CHELSEA PUBLISHING COMPANY.]
+
+[42] KHINTCHINE, A., Limit Laws of Sums of Independent Random Variables, Moscow-Leningrad, 1938. [In Russian.]
+
+[43] KOLMOGOROV, A., Grundbegriffe der Wahrscheinlichkeitsrechnung, Berlin, 1933. [The present work is an English translation of this.]
+
+[44] KOLMOGOROV, A., Algèbres de Boole métriques complètes, VI Zjazd Mat. Pols., Warsaw (1948), pp. 21–30.
+
+[45] KOLMOGOROV, A., A Theorem on the Convergence of Conditional Mathematical Expectations and Some of Its Applications, Comptes Rendus du Premier Congrès des Mathématiciens Hongrois (1952), pp. 367–386. [In Russian and Hungarian.]
+
+[46] KOLMOGOROV, A., Some Work of Recent Years in the Field of Limit Theorems in the Theory of Probability, Vestnik Moskov. Univ. Ser. Fiz.-Mat. Estest. Nauk, Vol. 8 (1953), pp. 29–38.
+
+[47] KUNISAWA, K., Limit Theorems in Probability Theory, Tokyo, 1949.
+
+[48] LECAM, L., Convergence in Distribution of Stochastic Processes, Univ. California Publ. Statistics. To appear.
+
+[49] LEVY, P., Théorie de l’addition des variables aléatoires, Paris, 1937.
+
+[50] LEVY, P., Processus stochastiques et mouvement Brownien, Paris, 1948.
+
+[51] LEVY, P., Systèmes markoviens et stationnaires. Cas dénombrable, Ann. Sci. Ecole Norm. Sup., Vol. 68 (1951), pp. 327–401.
+
+[52] LEVY, P., Complément à l’étude des processus de Markoff, Ann. Sci. Ecole Norm. Sup., Vol. 69 (1952), pp. 203–212.
+
+[53] LEVY, P., Processus markoviens et stationnaires du cinquieme type (infinité denombrable d’états possibles, paramètre continu), C. R. Acad. Sci. Paris, Vol. 236 (1953), pp. 1630–1632.
+
+[54] LOÈVE, M., Probability Theory, New York, 1955.
+
+[55] LOÈVE, M., Variational Terms and the Central Limit Problem, Proc. Third Berkeley Symposium on Math. Statistics and Probability, Vol. 2 (1956). To appear.
+
+[56] LOS, J., On the Axiomatic Treatment of Probability, Colloq Math., Vol. 3 (1955), pp.125–137.
+
+[57] MARSAGLIA, G., Iterated Limits and the Central Limit Theorem for Dependent Variables, Proc. Amer. Math. Soc., Vol. 5 (1954), pp. 987–991.
+
+[58] MOURIER, E., Eléments aléatoires dans un espace de Banach, Ann. Inst. H. Poincare, Vol. 13 (1953), pp. 161–244.
+
+[59] MOURIER, E., L-Random Elements and L-Random Elements in Banach Spaces, Proc. Berkeley Symposium on Math. Statistics and Probability, Vol. 2 (1956). To appear.
+
+[60] MOY, S. T. C., Characterizations of Conditional Expectation as a Transformation on Function Spaces, Pacific J. Math., Vol. 4 (1954), pp. 47–63.
+
+[61] MOY, S. T. C., Conditional Expectations of Banach Space Valued Random Variables and Their Properties, (Abstract) Bull. Amer. Math. Soc., Vol. 62 (1956). To appear.
+
+[62] NAKAMURA, M. and T. TURUMARU, Expectation in an Operator Algebra, Tôhoku Math. J., Vol. 6 (1954), pp. 182–188.
+
+[63] NEVEU, J., Etude des semi-groups de Markoff, (Thesis) Paris, 1955.
+
+[64] PARZEN, E., Convergence in Distribution and Fourier-Stieltjes Transforms of Random Functions, (Abstract) Ann. Math. Statistics, Vol. 26 (1955), p. 771.
+
+[65] PARZEN, E., A Central Limit Theorem for Multilinear Stochastic Processes, (Abstract) Ann. Math. Statistics, Vol. 27 (1956), p. 206.
+
+[66] PROHOROV, Yu. V., Probability Distributions in Functional Spaces, Uspehi Matem. Nauk (N.S.), Vol. 8 (1953), pp. 165–167. [In Russian.]
+
+[67] RENYI, A., The Calculus of Probabilities, Budapest, 1954. [In Hungarian.]
+
+[68] RENYI, A., On a New Axiomatic Theory of Probability, Acta Math. Acad. Sci. Hung., Vol. 6 (1955), pp. 285–335.
+
+[69] ROBBINS, H., On the Equidistribution of Sums of Independent Random Variables, Proc. Amer. Math. Soc., Vol. 4 (1953), pp. 786–799.
+
+[70] ROMANOVSKI, V. I., Discrete Markov Chains, Moscow-Leningrad, 1949. [In Russian.]
+
+[71] ROSENBLATT, M., A Central Limit Theorem and a Strong Mixing Condition, Proc. Nat. Acad. Sci. U.S.A., Vol. 42 (1956), pp. 43–47.
+
+[72] SARYMSAKOV, T. A., Elements of the Theory of Markov Processes, Moscow, 1954. [In Russian.]
+
+[73] SCHWARTZ, L., Théorie des distributions, Paris, 1950–51.
+
+[74] SEGAL, I. E., A Non-Commutative Extension of Abstract Integration, Ann. Math. Vol. 57 (1953), pp. 401–457.
+
+[75] SEGAL, I. E., Abstract Probability Spaces and a Theorem of Kolmogoroff, Amer. J. Math., Vol. 76 (1954), pp. 177–181.
+
+[76] SEGAL, I. E., A Mathematical Approach to Elementary Particles and Their Fields, University of Chicago, 1955. [Mimeographed Lecture Notes.]
+
+[77] TAKANO, K., On Some Limit Theorems of Probability Distributions, Ann. Inst. Statist. Math., Tokyo, Vol. 6 (1954), pp. 37–113.
+
+[78] TSURUMI, S., On the Strong Law of Large Numbers, Tôhoku Math. J., Vol. 7 (1955), pp. 166–170.
+
+[79] UMEGAKI, H., Conditional Expectation in an Operator Algebra, Tôhoku Math. J., Vol. 6 (1954), pp. 177–181.
+
+[80] YOSIDA, K., Operator Theoretical Treatment of the Markoff’s Process, Proc. Imp. Acad. Japan, Vol. 14 (1938), pp. 363–367.
 
 
-## 注
+
+# 柯尔莫哥洛夫小传
+
+
 
