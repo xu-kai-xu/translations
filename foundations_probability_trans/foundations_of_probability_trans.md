@@ -2500,8 +2500,3 @@ Gel’fand [24] 对广义随机过程（generalized stochastic processes）的�
 [80] YOSIDA, K., Operator Theoretical Treatment of the Markoff’s Process, Proc. Imp. Acad. Japan, Vol. 14 (1938), pp. 363–367.
 
 
-
-# 柯尔莫哥洛夫小传
-
-
-
